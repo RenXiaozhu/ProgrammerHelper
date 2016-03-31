@@ -1,0 +1,38 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : 0,
+    "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : 0,
+    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AC98D6AB-CFA3-44A1-96C2-F5C2DF06A94D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : "QQDemo\/QQDemo\/XMPPFramework\/",
+    "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : "..\/workSpace\/SmartBascketball-1",
+    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "QQDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QQDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robbiehanson\/XMPPFramework.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RenXiaozhu\/FunctionTestApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D31B99A164817FEC301F7EC0FB25BE56EAFB129D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/code.taobao.org\/svn\/SmartBasketball",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230"
+    }
+  ]
+}

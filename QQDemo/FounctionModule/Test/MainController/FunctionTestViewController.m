@@ -11,6 +11,8 @@
 #import "MediaPlayerManager.h"
 //#import "AgeCalculateViewController.h"
 #import "TestAnimationBtnView.h"
+#import "HtmlTestViewController.h"
+
 @interface FunctionTestViewController ()
 {
     NSMutableArray *arr;
@@ -33,7 +35,7 @@
     fTableView.dataSource = self;
     [self.view addSubview:fTableView];
     
-    
+
     // Do any additional setup after loading the view.
 }
 
@@ -134,7 +136,8 @@
             break;
         case 4:
         {
-            
+            HtmlTestViewController *controller = [[HtmlTestViewController alloc]init];
+            [self.navigationController pushViewController:controller animated:YES];
         }
             break;
         default:

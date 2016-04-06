@@ -34,42 +34,42 @@
 - (void)setLeftButton
 {
     //左侧按钮
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *leftImage;
-    UIImage *leftHighliteImage;
-    if (![self canBePopedBack]&&!self.presentingViewController)
-    {
-        //菜单
-        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-navi-menu" ,@"biz");
-        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-navi-menu" ,@"biz");
-    }
-    else if ([self canBePopedBack])
-    {
-        //返回
-        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-back" ,@"biz");
-        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-back" ,@"biz");
-    }
-    else//关闭
-    {
-        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-close" ,@"biz");
-        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-close" ,@"biz");
-    }
-
-
-    [leftButton setImage:leftImage forState:UIControlStateNormal];
-    [leftButton setImage:leftHighliteImage forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [leftButton sizeToFit];
-
-    leftButton.hidden=self.leftBarButtonHidden;
-    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+//    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIImage *leftImage;
+//    UIImage *leftHighliteImage;
+//    if (![self canBePopedBack]&&!self.presentingViewController)
+//    {
+//        //菜单
+//        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-navi-menu" ,@"biz");
+//        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-navi-menu" ,@"biz");
+//    }
+//    else if ([self canBePopedBack])
+//    {
+//        //返回
+//        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-back" ,@"biz");
+//        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-back" ,@"biz");
+//    }
+//    else//关闭
+//    {
+//        leftImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-close" ,@"biz");
+//        leftHighliteImage = GET_IMAGE_FROM_BUNDLE_PATH(@"btn-close" ,@"biz");
+//    }
+//
+//
+//    [leftButton setImage:leftImage forState:UIControlStateNormal];
+//    [leftButton setImage:leftHighliteImage forState:UIControlStateHighlighted];
+//    [leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [leftButton sizeToFit];
+//
+//    leftButton.hidden=self.leftBarButtonHidden;
+//    self.navigationItem.leftBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [SlideNavigationController sharedInstance].enableSwipeGesture=![self canBePopedBack]&&!self.presentingViewController;
 }
 
 - (void)viewDidAppear:(BOOL)animated

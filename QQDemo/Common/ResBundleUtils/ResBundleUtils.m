@@ -5,7 +5,7 @@
 
 #import "ResBundleUtils.h"
 
-#define DEFAULT_IMAGE_BUNDLE_NAME @"images.bundle"
+#define DEFAULT_IMAGE_BUNDLE_NAME @"pic.bundle"
 #define BUNDLE_COMPOSE_FORMAT @"%@/%@/%@.%@"
 #define BUNDLE_COMPOSE_FORMAT_DEFUALT_PATH @"%@/%@.%@"
 #define IMAGE_EXTEND_DOUBLE_X @"@2x"

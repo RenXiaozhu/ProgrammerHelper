@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DD1BD931CAD63E100F00851 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1BD901CAD63E100F00851 /* NJKWebViewProgress.m */; };
+		3DD1BD941CAD63E100F00851 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1BD921CAD63E100F00851 /* NJKWebViewProgressView.m */; };
+		3DD1BD971CAD7F2B00F00851 /* HtmlTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1BD961CAD7F2B00F00851 /* HtmlTestViewController.m */; };
+		3DD1BD9A1CAE488800F00851 /* RXZAnimationBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1BD991CAE488800F00851 /* RXZAnimationBtn.m */; };
 		60D500001C993E0900605814 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5FF611C993E0900605814 /* SDImageCache.m */; };
 		60D500011C993E0900605814 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5FF651C993E0900605814 /* SDWebImageDecoder.m */; };
 		60D500021C993E0900605814 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5FF671C993E0900605814 /* SDWebImageDownloader.m */; };
@@ -166,8 +170,6 @@
 		60D5051B1C997E5A00605814 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D505161C997E5A00605814 /* CustomView.m */; };
 		60D5051C1C997E5A00605814 /* VideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D505181C997E5A00605814 /* VideoTool.m */; };
 		60D5051D1C997E5A00605814 /* JMPasswordLineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5051A1C997E5A00605814 /* JMPasswordLineLayer.m */; };
-		60D505231C997F1100605814 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D505201C997F1100605814 /* NJKWebViewProgress.m */; };
-		60D505241C997F1100605814 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D505221C997F1100605814 /* NJKWebViewProgressView.m */; };
 		60D5052A1C99979800605814 /* WADynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D505291C99979800605814 /* WADynamicViewController.m */; };
 		60D5052D1C9997E500605814 /* FriendListBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5052C1C9997E500605814 /* FriendListBaseModel.m */; };
 		60D505301C999A4A00605814 /* UIView+ZXQuartz.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D5052F1C999A4A00605814 /* UIView+ZXQuartz.m */; };
@@ -393,6 +395,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DD1BD8F1CAD63E100F00851 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		3DD1BD901CAD63E100F00851 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		3DD1BD911CAD63E100F00851 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		3DD1BD921CAD63E100F00851 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		3DD1BD951CAD7F2B00F00851 /* HtmlTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlTestViewController.h; sourceTree = "<group>"; };
+		3DD1BD961CAD7F2B00F00851 /* HtmlTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlTestViewController.m; sourceTree = "<group>"; };
+		3DD1BD981CAE488800F00851 /* RXZAnimationBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXZAnimationBtn.h; sourceTree = "<group>"; };
+		3DD1BD991CAE488800F00851 /* RXZAnimationBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXZAnimationBtn.m; sourceTree = "<group>"; };
 		60D5002A1C993E8C00605814 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60D5002B1C993E8C00605814 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		60D5002D1C993EAD00605814 /* XMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPManager.h; sourceTree = "<group>"; };
@@ -631,10 +641,6 @@
 		60D505181C997E5A00605814 /* VideoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTool.m; sourceTree = "<group>"; };
 		60D505191C997E5A00605814 /* JMPasswordLineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPasswordLineLayer.h; sourceTree = "<group>"; };
 		60D5051A1C997E5A00605814 /* JMPasswordLineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPasswordLineLayer.m; sourceTree = "<group>"; };
-		60D5051F1C997F1100605814 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
-		60D505201C997F1100605814 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
-		60D505211C997F1100605814 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		60D505221C997F1100605814 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		60D505281C99979800605814 /* WADynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WADynamicViewController.h; sourceTree = "<group>"; };
 		60D505291C99979800605814 /* WADynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WADynamicViewController.m; sourceTree = "<group>"; };
 		60D5052B1C9997E500605814 /* FriendListBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListBaseModel.h; sourceTree = "<group>"; };
@@ -1169,6 +1175,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DD1BD8E1CAD63E100F00851 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1BD8F1CAD63E100F00851 /* NJKWebViewProgress.h */,
+				3DD1BD901CAD63E100F00851 /* NJKWebViewProgress.m */,
+				3DD1BD911CAD63E100F00851 /* NJKWebViewProgressView.h */,
+				3DD1BD921CAD63E100F00851 /* NJKWebViewProgressView.m */,
+			);
+			name = NJKWebViewProgress;
+			path = ../../../Documents/workSpace/SmartBascketball/SmartBascketball/3rdLibs/NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		3DF90F8F1CAD2CFA00B8058C /* HtmlModule */ = {
+			isa = PBXGroup;
+			children = (
+				3DF90F901CAD2CFA00B8058C /* Controller */,
+				3DF90F911CAD2CFA00B8058C /* head */,
+				3DF90F921CAD2CFA00B8058C /* Model */,
+				3DF90F931CAD2CFA00B8058C /* Service */,
+				3DF90F941CAD2CFA00B8058C /* View */,
+			);
+			path = HtmlModule;
+			sourceTree = "<group>";
+		};
+		3DF90F901CAD2CFA00B8058C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1BD951CAD7F2B00F00851 /* HtmlTestViewController.h */,
+				3DD1BD961CAD7F2B00F00851 /* HtmlTestViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3DF90F911CAD2CFA00B8058C /* head */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = head;
+			sourceTree = "<group>";
+		};
+		3DF90F921CAD2CFA00B8058C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DF90F931CAD2CFA00B8058C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3DF90F941CAD2CFA00B8058C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1BD981CAE488800F00851 /* RXZAnimationBtn.h */,
+				3DD1BD991CAE488800F00851 /* RXZAnimationBtn.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		60D500301C993EEE00605814 /* NetworkServiceBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1313,7 +1382,7 @@
 			path = WebViewController;
 			sourceTree = "<group>";
 		};
-		60D503F51C9947E000605814 /* dynamicState */ = {
+		60D503F51C9947E000605814 /* DynamicState */ = {
 			isa = PBXGroup;
 			children = (
 				60D503F61C9947E000605814 /* Controller */,
@@ -1322,6 +1391,7 @@
 				60D503F91C9947E000605814 /* Service */,
 				60D503FA1C9947E000605814 /* Views */,
 			);
+			name = DynamicState;
 			path = dynamicState;
 			sourceTree = "<group>";
 		};
@@ -1474,6 +1544,7 @@
 		60D504071C9947E000605814 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				3DF90F8F1CAD2CFA00B8058C /* HtmlModule */,
 				60D5047A1C994E3400605814 /* MediaMudule */,
 				60D504761C994D8C00605814 /* MainController */,
 				60D504661C994D0E00605814 /* AnimationModule */,
@@ -1857,18 +1928,6 @@
 			name = "supporting files";
 			sourceTree = "<group>";
 		};
-		60D5051E1C997F1100605814 /* NJKWebViewProgress */ = {
-			isa = PBXGroup;
-			children = (
-				60D5051F1C997F1100605814 /* NJKWebViewProgress.h */,
-				60D505201C997F1100605814 /* NJKWebViewProgress.m */,
-				60D505211C997F1100605814 /* NJKWebViewProgressView.h */,
-				60D505221C997F1100605814 /* NJKWebViewProgressView.m */,
-			);
-			name = NJKWebViewProgress;
-			path = "../../../../workSpace/SmartBascketball-1/SmartBascketball/3rdLibs/NJKWebViewProgress";
-			sourceTree = "<group>";
-		};
 		60D505321C999D0900605814 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2005,7 +2064,7 @@
 		60D5FBCB1C9937D400605814 /* FounctionModule */ = {
 			isa = PBXGroup;
 			children = (
-				60D503F51C9947E000605814 /* dynamicState */,
+				60D503F51C9947E000605814 /* DynamicState */,
 				60D503FB1C9947E000605814 /* Linkman */,
 				60D504011C9947E000605814 /* Message */,
 				60D504071C9947E000605814 /* Test */,
@@ -2044,7 +2103,7 @@
 		60D5FBCF1C9937D400605814 /* ThirdLists */ = {
 			isa = PBXGroup;
 			children = (
-				60D5051E1C997F1100605814 /* NJKWebViewProgress */,
+				3DD1BD8E1CAD63E100F00851 /* NJKWebViewProgress */,
 				60D5FEDD1C993E0900605814 /* AFNetworking */,
 				60D5FEF11C993E0900605814 /* AMapLocationKit.framework */,
 				60D5FEF21C993E0900605814 /* AMTumblrHud */,
@@ -3517,6 +3576,7 @@
 				60D5FFD51C993E0900605814 /* ATMHud.m in Sources */,
 				60D500031C993E0900605814 /* SDWebImageManager.m in Sources */,
 				60D500B21C993F2C00605814 /* TLVSerializableObject.m in Sources */,
+				3DD1BD971CAD7F2B00F00851 /* HtmlTestViewController.m in Sources */,
 				60D5FFF31C993E0900605814 /* iToast.m in Sources */,
 				60D5FE0E1C99397700605814 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				60D5FFCF1C993E0900605814 /* AFURLConnectionOperation.m in Sources */,
@@ -3530,6 +3590,7 @@
 				60D5041D1C9948B300605814 /* LeftToolViewController.m in Sources */,
 				60D5FE2B1C99397700605814 /* NSXMLElement+XEP_0297.m in Sources */,
 				60D500021C993E0900605814 /* SDWebImageDownloader.m in Sources */,
+				3DD1BD931CAD63E100F00851 /* NJKWebViewProgress.m in Sources */,
 				60D5FDDB1C99397700605814 /* XMPPUserMemoryStorageObject.m in Sources */,
 				60D5FEC11C993BB400605814 /* UIAlertView+AutoDismiss.m in Sources */,
 				60D504F61C995A5B00605814 /* QQDemo.xcdatamodeld in Sources */,
@@ -3620,9 +3681,11 @@
 				60D5FE191C99397700605814 /* XMPPMessage+XEP_0172.m in Sources */,
 				60D501211C99450500605814 /* NSURL+Base.m in Sources */,
 				60D5FFED1C993E0900605814 /* IQTitleBarButtonItem.m in Sources */,
+				3DD1BD941CAD63E100F00851 /* NJKWebViewProgressView.m in Sources */,
 				60D5FDB91C99397700605814 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				60D5FE2E1C99397700605814 /* NSXMLElement+XEP_0335.m in Sources */,
 				60D5FDFB1C99397700605814 /* XMPPvCardTempEmail.m in Sources */,
+				3DD1BD9A1CAE488800F00851 /* RXZAnimationBtn.m in Sources */,
 				60D5FFE81C993E0900605814 /* FMResultSet.m in Sources */,
 				60D505081C997E1E00605814 /* VideoPlayerStreamViewController.m in Sources */,
 				60D5FE0A1C99397700605814 /* XMPPSoftwareVersion.m in Sources */,
@@ -3743,10 +3806,8 @@
 				60D5FDC11C99397700605814 /* NSXMLElement+XMPP.m in Sources */,
 				60D5FFDD1C993E0900605814 /* GTMBase64.m in Sources */,
 				60D5FFD11C993E0900605814 /* AFURLResponseSerialization.m in Sources */,
-				60D505231C997F1100605814 /* NJKWebViewProgress.m in Sources */,
 				60D501251C99450500605814 /* UINavigationBar+Awesome.m in Sources */,
 				60D5042A1C99491200605814 /* ChatListViewController.m in Sources */,
-				60D505241C997F1100605814 /* NJKWebViewProgressView.m in Sources */,
 				60D5052D1C9997E500605814 /* FriendListBaseModel.m in Sources */,
 				60D5FDCA1C99397700605814 /* XMPPPresence.m in Sources */,
 				60D5011F1C99450500605814 /* NSString+Additions.m in Sources */,
@@ -3839,7 +3900,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 1051013789@qq.com (7F5TS2LLJU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 1051013789@qq.com (7F5TS2LLJU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3894,7 +3956,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 1051013789@qq.com (7F5TS2LLJU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 1051013789@qq.com (7F5TS2LLJU)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3930,6 +3993,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -3952,8 +4017,9 @@
 					"$(SDK_ROOT)/usr/lib/system",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = WA.QQDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = WA.programmerHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3961,6 +4027,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -3983,8 +4051,9 @@
 					"$(SDK_ROOT)/usr/lib/system",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = WA.QQDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = WA.programmerHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

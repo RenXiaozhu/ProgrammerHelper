@@ -18,12 +18,12 @@
 {
    
     UITouch *onlyTouch;
-    BOOL isLeftOrRightTool;
-    BOOL isShowToolView;
     CGFloat leftToolScalef;
     CGFloat rightToolScalef;
     CGFloat mainScalef;
-    
+    BOOL isLeftOrRightTool;
+    BOOL isShowToolView;
+    BOOL  moveDirection;//  yes   向右 ； no 向左
 }
 
 @end
@@ -36,142 +36,12 @@
 @synthesize endPoint;
 
 
-
-- (void)animateViewWithleftOrRight:(BOOL)leftOrRight
-{
-    isLeftOrRightTool = leftOrRight;
-    if (isShowToolView==NO) {
-        isShowToolView = YES;
-        self.tableBarViewController.view.transform = CGAffineTransformIdentity;
-        self.leftToolView.view.transform = CGAffineTransformIdentity;
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.5];
-        isLeftOrRightTool = leftOrRight;
-        if (leftOrRight)
-        {
-            leftToolScalef = 1.0;
-            mainScalef = LEFTSCALING;
-            self.rightToolView.view.alpha = 0.0;
-            self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,mainScalef,mainScalef);
-            self.tableBarViewController.view.center = CGPointMake(SCREEN_WIDTH, SCREEN_HEIGHT/2);
-            self.leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
-            self.leftToolView.view.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-            self.leftToolView.view.alpha = 1.0;
-            
-        }
-        else
-        {
-            mainScalef = MAINVIEWSCALING;
-            rightToolScalef = 1.0;
-            self.leftToolView.view.alpha = 0.0;
-            self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,mainScalef,mainScalef);
-            self.tableBarViewController.view.center = CGPointMake(SCREEN_WIDTH/2-SCREEN_WIDTH*(1-MAINVIEWSCALING), SCREEN_HEIGHT/2);
-            
-            self.rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
-            self.rightToolView.view.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-            self.rightToolView.view.alpha = 1.0;
-        }
-        [UIView commitAnimations];
-    }
-    else
-    {
-        [self animationadjustViewWithTouchItem:YES];
-    }
-    
-    
-
-}
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    onlyTouch = [touches anyObject];
-//    
-//    startPoint = [onlyTouch locationInView:tableBarViewController.view];
-//    DDLogInfo(@"startPoint  x==%f y==%f",startPoint.x,startPoint.y);
-//    
-//}
-//
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    static CGPoint point1;
-//    static CGPoint point2;
-//    onlyTouch = [touches anyObject];
-//    endPoint = [onlyTouch locationInView:tableBarViewController.view];
-//    point1 = endPoint;
-//    DDLogInfo(@"endPoint  x==%f y==%f",endPoint.x,endPoint.y);
-//    
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        
-//        double delayInSeconds =0.01;
-//        dispatch_time_t delayNanoSeconds = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds*NSEC_PER_SEC);
-//        dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//        dispatch_after(delayNanoSeconds, concurrentQueue, ^{
-//            point2 = endPoint;
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                if (point1.x-point2.x>0)
-//                {
-//                    [self AnmiationViewWith:(point1.x-point2.x) direction:YES touchItem:NO showOrHidden:NO];
-//                }
-//                else
-//                {
-//                    [self AnmiationViewWith:(point2.x-point1.x) direction:NO touchItem:NO showOrHidden:YES];
-//                }
-//                
-//            });
-//        });
-//    });
-//    
-//}
-//
-//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    
-//    if (endPoint.x == -1111 )
-//    {
-//        [self AnmiationViewWith:0 direction:YES touchItem:NO showOrHidden:NO];
-//    }
-//    else
-//    {
-//        if (isLeftOrRightTool)
-//        {
-//            if (endPoint.x < (self.view.bounds.size.width*LEFTSCALING)/2)
-//            {
-//                [self AnmiationViewWith:endPoint.x direction:YES touchItem:NO showOrHidden:YES];
-//            }
-//            else
-//            {
-//                [self AnmiationViewWith:(SCREEN_WIDTH-endPoint.x) direction:NO touchItem:NO showOrHidden:NO];
-//            }
-//        }
-//        
-//        
-//    }
-//    
-//}
-
-
-
 - (void)loadView
 {
     [super loadView];
     
-    UIImageView *bgView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    bgView.image = [UIImage imageNamed:@"IMG_0143"];
-    [self.view addSubview:bgView];
-
-    
-    leftToolScalef = LEFTSCALING;
-    rightToolScalef = RIGHTSCALING;
-    
     [self initLeftToolView];
     [self initRightToolView];
-    
     [self initTabbarViewController];
 }
 
@@ -179,49 +49,50 @@
 - (void)initLeftToolView
 {
     leftToolView = [[LeftToolViewController alloc]init];
-    
+
+    @weakify(self);
     [leftToolView setRestoreBlock:^(NSString *name){
-        
+        @strongify(self);
+
         [self animationadjustViewWithTouchItem:YES];
+
         UIViewController *controller = [[UIViewController alloc]init];
         controller.view.backgroundColor = [UIColor whiteColor];
-        RootNavViewController *nav = (RootNavViewController *)tableBarViewController.selectedViewController;
+        RootNavViewController *nav = (RootNavViewController *)self.tableBarViewController.selectedViewController;
         [nav pushViewController:controller animated:YES];
 
         
     }];
     
-    leftToolView.view.frame = CGRectMake(-SCREEN_WIDTH,
-                                                     0,
-                                          SCREEN_WIDTH,
-                                         SCREEN_HEIGHT);
+    leftToolView.view.frame = CGRectMake(-SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, LEFTSCALING, LEFTSCALING);
-    leftToolView.view.center = CGPointMake(0,SCREEN_HEIGHT/2);
+    leftToolView.view.center = CGPointMake(- SCREEN_WIDTH*LEFTSCALING,SCREEN_HEIGHT/2);
     [self.view addSubview:leftToolView.view];
+
 }
 
 
 - (void)initRightToolView
 {
     rightToolView = [[RoghtToolViewController alloc]init];
-    
+
+    @weakify(self);
     [rightToolView setRestoreBlock:^(NSString *name){
-        
+        @strongify(self);
+
         [self animationadjustViewWithTouchItem:YES];
         
         UIViewController *controller = [[UIViewController alloc]init];
         controller.view.backgroundColor = [UIColor whiteColor];
-        RootNavViewController *nav = (RootNavViewController *)tableBarViewController.selectedViewController;
-        [nav pushViewController:controller animated:YES];
 
+        RootNavViewController *nav = (RootNavViewController *)self.tableBarViewController.selectedViewController;
+        [nav pushViewController:controller animated:YES];
         
     }];
-    rightToolView.view.frame = CGRectMake(SCREEN_WIDTH,
-                                                     0,
-                                          SCREEN_WIDTH,
-                                          SCREEN_HEIGHT);
-    rightToolView.view.center = CGPointMake(SCREEN_WIDTH/2+SCREEN_WIDTH*(1-RIGHTSCALING), SCREEN_HEIGHT/2);
-    rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, RIGHTSCALING, RIGHTSCALING);
+    
+    rightToolView.view.frame = CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    rightToolView.view.center = CGPointMake(SCREEN_WIDTH+SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+    rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
     [self.view addSubview:rightToolView.view];
 }
 
@@ -230,20 +101,18 @@
     tableBarViewController = [[TableBarViewController alloc]init];
     
     ChatListViewController *chatListViewController = [[ChatListViewController alloc]init];
-    
-    __block BasicLoadingViewController *basicView = self;
-    
+
+    @weakify(self);
     [chatListViewController setAnmiationBlock:^(BOOL isLeftOrRight)
      {
-         [basicView animateViewWithleftOrRight:isLeftOrRight];
+         @strongify(self);
+         [self animateViewWithleftOrRight:isLeftOrRight];
      }];
-    
-    RootNavViewController *chatNav = [[RootNavViewController alloc]initWithRootViewController:chatListViewController];
 
-    
+
+    RootNavViewController *chatNav                               = [[RootNavViewController alloc]initWithRootViewController:chatListViewController];
     FriendListViewController *friendListViewController = [[FriendListViewController alloc]init];
-    
-    RootNavViewController *friendNav = [[RootNavViewController alloc]initWithRootViewController:friendListViewController];
+    RootNavViewController *friendNav                            = [[RootNavViewController alloc]initWithRootViewController:friendListViewController];
 
     
     WADynamicViewController *waDynamicViewController = [[WADynamicViewController alloc]init];
@@ -356,8 +225,6 @@
         }
     }
     
-    
-    
     NSArray *viewControllers  = [NSArray arrayWithObjects:chatNav,friendNav,DynamicNav,FunctionNav, nil];
     
     tableBarViewController.viewControllers = viewControllers;
@@ -365,15 +232,14 @@
     [self.view addSubview:tableBarViewController.view];
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(showToolViewAnimation:)];
-    [tableBarViewController.view addGestureRecognizer:pan];
+    [self.view addGestureRecognizer:pan];
 
 }
 
-
 - (void)showToolViewAnimation:(UIPanGestureRecognizer *)rec
 {
-    if (!isShowToolView)
-    return;
+//    if (!isShowToolView)
+//    return;
     CGPoint point = [rec translationInView:self.view];
 //    DDLogInfo(@"point.x==%f  point.y==%f",point.x,point.y);
 //    scalef = (point.x==0?0:(point.x/SCREEN_WIDTH))+scalef;
@@ -382,44 +248,59 @@
     if (rec.state == UIGestureRecognizerStateBegan)
     {
         startPoint = [rec locationInView:self.view];
+
+        if (startPoint.x<5||startPoint.x>(SCREEN_WIDTH-5))
+        {
+            return;
+        }
     }
     
     if (rec.state == UIGestureRecognizerStateChanged)
     {
         CGPoint point1 = [rec locationInView:self.view];
-        
-        if (isLeftOrRightTool)
+
+        if (startPoint.x-point1.x<0)
         {
-                if (startPoint.x-point1.x<0)
-                return;
-                mainScalef = ((startPoint.x-point1.x)/(SCREEN_WIDTH*LEFTSCALING))*0.4+LEFTSCALING;
-                if (mainScalef>1.0||mainScalef<0.7)
-                return;
-                leftToolScalef = 1.0-((startPoint.x-point1.x)/(SCREEN_WIDTH*LEFTSCALING))*0.4;
-            
+            moveDirection = YES;
         }
         else
         {
-            if (startPoint.x-point1.x>0)
-                return;
-            mainScalef = MAINVIEWSCALING-(startPoint.x-point1.x)/SCREEN_WIDTH;
-            DDLogInfo(@"%f",((startPoint.x-point1.x)/(SCREEN_WIDTH*LEFTSCALING))*0.4);
-            if (mainScalef>1.0||mainScalef<0.75)
-                return;
-            rightToolScalef = 1+((startPoint.x-point1.x)/(SCREEN_WIDTH*LEFTSCALING))*0.5;
-//            DDLogInfo(@"%f",rightToolScalef);
+            moveDirection = NO;
         }
-        
-        if (isLeftOrRightTool){
+
+        CGPoint mainViewCenterPoint = CGPointZero;
+        CGPoint leftViewCenterPoint    = CGPointZero;
+        CGPoint rightViewCenterPoint  = CGPointZero;
+
+        if (startPoint.x<5)
+        {
+            if (self.tableBarViewController.view.origin.x<SCREEN_WIDTH*0.8)
+            {
+                mainViewCenterPoint = CGPointMake( SCREEN_WIDTH/2 + point1.x, SCREEN_HEIGHT/2);
+            }
+            if (self.leftToolView.view.origin.x<=0)
+            {
+                leftViewCenterPoint    = CGPointMake(-SCREEN_WIDTH/2 + point1.x*SCALINGSPEED, SCREEN_HEIGHT/2);
+            }
+
             rec.view.center = CGPointMake(rec.view.center.x + point.x,rec.view.center.y);
             rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,mainScalef,mainScalef);
             [rec setTranslation:CGPointMake(0, 0) inView:self.view];
             
             leftToolView.view.center = CGPointMake(leftToolView.view.center.x + point.x*SCALINGSPEED,leftToolView.view.center.y);
-            leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,leftToolScalef,leftToolScalef);
+            leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
         }
         else
         {
+
+            if (self.tableBarViewController.view.origin.x>=SCREEN_WIDTH*0.3)
+            {
+                mainViewCenterPoint = CGPointMake( SCREEN_WIDTH/2 + point1.x, SCREEN_HEIGHT/2);
+            }
+            if (self.rightToolView.view.origin.x>=(SCREEN_WIDTH+SCREEN_WIDTH*0.3))
+            {
+                rightViewCenterPoint    = CGPointMake(SCREEN_WIDTH*3/2 - point1.x*0.8, SCREEN_HEIGHT/2);
+            }
             rec.view.center = CGPointMake(rec.view.center.x + point.x,rec.view.center.y);
             rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,mainScalef,mainScalef);
             
@@ -430,19 +311,16 @@
             
         }
     }
-    
-    
-    
+
     //手势结束后修正位置
     if (rec.state == UIGestureRecognizerStateEnded)
     {
         [self animationadjustViewWithTouchItem:NO];
     }
 
-    
-    
-    
 }
+
+
 
 
 - (void)animationadjustViewWithTouchItem:(BOOL)isTouch
@@ -450,76 +328,42 @@
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.0f];
-    self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,mainScalef,mainScalef);
-    self.leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, leftToolScalef, leftToolScalef);
-    self.rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, rightToolScalef, rightToolScalef);
+    self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+    self.rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
     [UIView commitAnimations];
     
     CGPoint mainViewCenterPoint;
     CGPoint leftViewCenterPoint;
     CGPoint rightViewCenterPoint;
-    if (!isTouch)
+
+    if (isTouch)
     {
         if (isLeftOrRightTool)
         {
-            
-            if (mainScalef>0.85)
-            {
-                mainScalef = 1.0;
-                leftToolScalef = 0.7;
-                mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                leftViewCenterPoint = CGPointMake(0, SCREEN_HEIGHT/2);
-                isShowToolView = NO;
-            }
-            else
-            {
-                mainScalef = 0.7;
-                leftToolScalef = 1.0;
-                mainViewCenterPoint =CGPointMake(SCREEN_WIDTH, SCREEN_HEIGHT/2);
-                leftViewCenterPoint = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                isShowToolView = YES;
-            }
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2+ SCREEN_WIDTH*MAINVIEWSCALING, SCREEN_HEIGHT/2);
+            leftViewCenterPoint    = CGPointMake(SCREEN_WIDTH*LEFTSCALING, SCREEN_HEIGHT/2);
         }
         else
         {
-            if (mainScalef>0.90f)
-            {
-                mainScalef = 1.0f;
-                rightToolScalef = 0.85f;
-                mainViewCenterPoint  = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                rightViewCenterPoint = CGPointMake(SCREEN_WIDTH/2+SCREEN_WIDTH*(1-RIGHTSCALING), SCREEN_HEIGHT/2);
-                isShowToolView = NO;
-            }
-            else
-            {
-                mainScalef = MAINVIEWSCALING;
-                rightToolScalef = 1.0f;
-                mainViewCenterPoint =  CGPointMake( SCREEN_WIDTH/2-SCREEN_WIDTH*(1-MAINVIEWSCALING), SCREEN_HEIGHT/2);
-                rightViewCenterPoint = CGPointMake( SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                isShowToolView = YES;
-            }
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2 - SCREEN_WIDTH*MAINVIEWSCALING, SCREEN_HEIGHT/2);
+            rightViewCenterPoint  = CGPointMake(SCREEN_WIDTH*RIGHTSCALING, SCREEN_HEIGHT/2);
         }
     }
     else
     {
         if (isLeftOrRightTool)
         {
-                mainScalef = 1.0;
-                leftToolScalef = 0.7;
-                mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                leftViewCenterPoint = CGPointMake( 0, SCREEN_HEIGHT/2);
-                isShowToolView = NO;
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            leftViewCenterPoint    = CGPointMake(-SCREEN_WIDTH*LEFTSCALING, SCREEN_HEIGHT/2);
         }
         else
         {
-                mainScalef = 1.0f;
-                rightToolScalef = 0.7f;
-                mainViewCenterPoint  = CGPointMake( SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
-                rightViewCenterPoint = CGPointMake( SCREEN_WIDTH/2+SCREEN_WIDTH*(1-RIGHTSCALING), SCREEN_HEIGHT/2);
-                isShowToolView = NO;
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+            rightViewCenterPoint  = CGPointMake(-SCREEN_WIDTH*RIGHTSCALING, SCREEN_HEIGHT/2);
         }
     }
-    
+
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5f];
@@ -538,6 +382,67 @@
     
     [UIView commitAnimations];
    
+}
+
+- (void)animateViewWithleftOrRight:(BOOL)leftOrRight
+{
+    isLeftOrRightTool = leftOrRight;
+
+    if (isShowToolView==NO)
+    {
+
+        isShowToolView = YES;
+
+        self.tableBarViewController.view.transform = CGAffineTransformIdentity;
+        self.leftToolView.view.transform = CGAffineTransformIdentity;
+
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        isLeftOrRightTool = leftOrRight;
+
+        CGPoint mainViewCenterPoint = CGPointZero;
+        CGPoint leftViewCenterPoint    = CGPointZero;
+        CGPoint rightViewCenterPoint  = CGPointZero;
+
+        if (isLeftOrRightTool)
+        {
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2+SCREEN_WIDTH*MAINVIEWSCALING, SCREEN_HEIGHT/2);
+            leftViewCenterPoint    = CGPointMake(SCREEN_WIDTH*LEFTSCALING, SCREEN_HEIGHT/2);
+        }
+        else
+        {
+            mainViewCenterPoint = CGPointMake(SCREEN_WIDTH/2 - SCREEN_WIDTH*MAINVIEWSCALING, SCREEN_HEIGHT/2);
+            rightViewCenterPoint  = CGPointMake(SCREEN_WIDTH*RIGHTSCALING, SCREEN_HEIGHT/2);
+        }
+
+        if (leftOrRight)
+        {
+            leftToolScalef = 1.0;
+            self.rightToolView.view.alpha = 0.0;
+            self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+            [self.tableBarViewController.view setCenter:mainViewCenterPoint];
+            self.leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+            [self.leftToolView.view setCenter:leftViewCenterPoint];
+            self.leftToolView.view.alpha = 1.0;
+
+        }
+        else
+        {
+            self.leftToolView.view.alpha = 0.0;
+            self.tableBarViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+            [self.tableBarViewController.view setCenter:mainViewCenterPoint];
+
+            self.rightToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.0, 1.0);
+            [self.rightToolView.view setCenter:rightViewCenterPoint];
+            self.rightToolView.view.alpha = 1.0;
+        }
+        [UIView commitAnimations];
+    }
+    else
+    {
+        [self animationadjustViewWithTouchItem:YES];
+    }
+    
 }
 
 

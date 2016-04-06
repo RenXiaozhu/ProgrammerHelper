@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "XMPPManager.h"
 
-#define SCALINGSPEED     0.8
-#define LEFTSCALING      0.7//左边菜单栏向右滑动缩放比例
-#define RIGHTSCALING     0.7//右边菜单栏向左滑动缩放比例
-#define HEIGHTSLOPE      600//高度缩放比例
+#define SCALINGSPEED     1.2
+#define LEFTSCALING      1.0//左边菜单栏向右滑动缩放比例
+#define RIGHTSCALING    0.2//右边菜单栏向左滑动缩放比例
+#define HEIGHTSLOPE      0//高度缩放比例
 #define MAINVIEWSCALING  0.8//主菜单缩放比例
 #define SCREENSCALE          (SCREEN_WIDTH/SCREEN_HEIGHT)
 

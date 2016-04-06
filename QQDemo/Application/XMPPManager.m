@@ -31,10 +31,12 @@ static XMPPManager* manager = nil;
 @synthesize messageSenders;
 @synthesize rosterArray;
 @synthesize allUsersDataDic;
+
 + (XMPPManager *)sharedManager{
-    if (manager == nil) {
+
+    if (manager == nil)
+    {
         manager = [[XMPPManager alloc] init];
-         
     }
     return manager;
 }
@@ -50,9 +52,9 @@ static XMPPManager* manager = nil;
 - (void)initStream{
     
     self.messageRecordDic = [[NSMutableDictionary alloc] init];//聊天信息的读取写在认证通过里面
-    self.rosterArray =[[NSMutableArray alloc] initWithCapacity:10];
-    self.messageSenders=[[NSMutableDictionary alloc] initWithCapacity:10];
-    self.allUsersDataDic=[[NSMutableDictionary alloc] initWithCapacity:10];
+    self.rosterArray             = [[NSMutableArray alloc] initWithCapacity:10];
+    self.messageSenders     = [[NSMutableDictionary alloc] initWithCapacity:10];
+    self.allUsersDataDic     = [[NSMutableDictionary alloc] initWithCapacity:10];
 
     //xmpp数据流
     stream = [[XMPPStream alloc] init];
@@ -135,9 +137,7 @@ static XMPPManager* manager = nil;
     NSError *error ;
     if (![stream connectWithTimeout:-1 error:&error]) {
         NSLog(@"my connected error : %@",error.description);
-    
     }
-    
 }
 
 //登录
@@ -151,6 +151,7 @@ static XMPPManager* manager = nil;
     self.password = password;
     stream.hostName = HOST;
     stream.hostPort = 5222;
+
     if (stream.isConnected) {
         [self goOnline];
     }
@@ -381,6 +382,7 @@ static XMPPManager* manager = nil;
     
     return nil;
 }
+
 //更新自己的名片信息
 - (void)updateMyvCardTemp:(XMPPvCardTemp *)vCardTemp
 {

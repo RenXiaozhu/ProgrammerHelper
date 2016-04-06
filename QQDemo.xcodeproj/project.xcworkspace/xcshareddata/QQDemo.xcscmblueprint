@@ -1,24 +1,32 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8DC90DED7228DCF27C02A30832E036B6508F6502",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : 0,
+    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : 0,
     "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : 0,
-    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : 0
+    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : 0,
+    "8DC90DED7228DCF27C02A30832E036B6508F6502" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AC98D6AB-CFA3-44A1-96C2-F5C2DF06A94D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : "QQDemo\/QQDemo\/XMPPFramework\/",
+    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : "",
     "b21b8ab2-5192-41ff-a318-6cd7b16d7e40++6230" : "..\/workSpace\/SmartBascketball-1",
-    "D31B99A164817FEC301F7EC0FB25BE56EAFB129D" : ""
+    "B775552D1BBEEADC6A0BBB2FD048B6AA26CB309D" : "QQDemo\/QQDemo\/XMPPFramework\/",
+    "8DC90DED7228DCF27C02A30832E036B6508F6502" : "ProgrammerHelper\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "QQDemo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "QQDemo.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RenXiaozhu\/ProgrammerHelper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8DC90DED7228DCF27C02A30832E036B6508F6502"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robbiehanson\/XMPPFramework.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

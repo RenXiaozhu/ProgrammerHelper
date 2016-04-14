@@ -64,9 +64,9 @@
         
     }];
     
-    leftToolView.view.frame = CGRectMake(-SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    leftToolView.view.frame       = CGRectMake(-SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     leftToolView.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, LEFTSCALING, LEFTSCALING);
-    leftToolView.view.center = CGPointMake(- SCREEN_WIDTH*LEFTSCALING,SCREEN_HEIGHT/2);
+    leftToolView.view.center       = CGPointMake(- SCREEN_WIDTH*LEFTSCALING,SCREEN_HEIGHT/2);
     [self.view addSubview:leftToolView.view];
 
 }

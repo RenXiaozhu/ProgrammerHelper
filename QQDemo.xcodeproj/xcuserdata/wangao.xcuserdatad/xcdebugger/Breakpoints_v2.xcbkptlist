@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "420"
             endingLineNumber = "420"
-            landmarkName = "-animationadjustViewWithTouchItem:"
+            landmarkName = "-animateViewWithleftOrRight:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "417"
             endingLineNumber = "417"
-            landmarkName = "-animationadjustViewWithTouchItem:"
+            landmarkName = "-animateViewWithleftOrRight:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

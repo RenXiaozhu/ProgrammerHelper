@@ -69,6 +69,7 @@
     leftToolView.view.center       = CGPointMake(- SCREEN_WIDTH*LEFTSCALING,SCREEN_HEIGHT/2);
     [self.view addSubview:leftToolView.view];
 
+    
 }
 
 

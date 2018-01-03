@@ -32,7 +32,7 @@
             startingLineNumber = "420"
             endingLineNumber = "420"
             landmarkName = "-animateViewWithleftOrRight:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             startingLineNumber = "417"
             endingLineNumber = "417"
             landmarkName = "-animateViewWithleftOrRight:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
